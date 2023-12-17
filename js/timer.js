@@ -3,10 +3,8 @@ function CountDown() {
     let minutes = 0;
     let secondsText;
     let minutesText;
-    let stopwatch;
-
+    
     function startCounter() {
-        console.log(seconds);
         seconds--;
         if (seconds < 0){
             seconds = 59;
@@ -15,7 +13,8 @@ function CountDown() {
         if (minutes < 0){
             seconds = 0;
             minutes = 0;
-            clearInterval(stopwatch)
+            clearInterval(stopwatch);
+            timeOver();
         }
         secondsText = seconds;
         minutesText = minutesText;

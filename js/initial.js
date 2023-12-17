@@ -1,18 +1,23 @@
 function initial() {
     movement = 0;
     distributeCard(levels[levelActual].cards);
-
     document.querySelector("#mov").innerText = "00";
     maxCounter();
+    document.querySelector(".level-selection").classList.remove("visible");
     document.querySelector("#endGame").classList.remove("visible");
+    document.querySelector("#timeOver").classList.remove("visible");
     document.querySelector("#gameOver").classList.remove("visible");
     document.querySelector("#levelUp").classList.remove("visible");
 
-    document.querySelectorAll(".card").forEach(function(element) {
-        element.addEventListener("click",discover);
+    document.querySelectorAll(".card").forEach(function (element) {
+        element.addEventListener("click", discover);
     });
     
-    //CountDown();
+    if (!modeRelax) {
+        CountDown();
+    }else {
+        document.querySelector("#timer").classList.add("hide-timer");
+    }
 }
 
 function restart() {
@@ -21,10 +26,15 @@ function restart() {
     initial();
 }
 
-initial();
+function startNormalGame() {
+    modeRelax = false;
+    document.querySelector("#welcome").classList.remove("visible");
+    initial();
+    document.querySelector(".level-control").classList.add("hide-control");
+}
 
-document.querySelectorAll(".restart").forEach(function(element) {
-    element.addEventListener("click", restart);
-});
-
-document.querySelector("#nextLevel").addEventListener("click", loadNewLevel);
+function startRelaxGame() {
+    modeRelax = true;
+    document.querySelector("#welcome").classList.remove("visible");
+    initial();
+}

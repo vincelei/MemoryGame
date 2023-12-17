@@ -11,15 +11,22 @@
 </head>
 
 <body>
+    <div id="welcome" class="welcome">
+        <h1>👋 ¡Memomry! 👋</h1>
+        <div class="welcome-button">
+            <button id="normal-game">¡I want to play!</button>
+            <button id="relax-game">Relax mode</button>
+        </div>
+    </div>
     <header class="header">
         <div class="counter">
             <div class="counter-item">
-                <h4 class="header-title">Move</h4>
+                <h4 class="header-title">Movements</h4>
                 <div class="header-num">
                     <span id="mov">00</span>/<span id="mov-total">20</span>
                 </div>
             </div>
-            <div class="counter-item">
+            <div id="timer" class="counter-item">
                 <h4 class="header-title">Time</h4>
                 <div class="header-num">
                     <span id="minutes">00</span>:<span id="seconds">00</span>
@@ -28,14 +35,12 @@
         </div>
         <div class="level">
             <h4 class="header-title">Level</h4>
-            <div class="header-num">
-                <span id="level">01</span>
-            </div>
+            <div class="header-num"><span id="level">01</span></div>
         </div>
+        <button id="level-control" class="level-control">...</button>
     </header>
     <main>
-        <div id="table" class="table"></div>
-        
+        <div id="table" class="table"></div> 
         <div id="levelUp" class="level-up">
             <div class="mode">
                 <h2>¡Very Good!</h2>
@@ -45,8 +50,15 @@
         </div>
         <div id="gameOver" class="game-over">
             <div class="mode">
-                <h2>¡Sorry!</h2>
+                <h2>¡Oh no!</h2>
                 <p>You have run out of moves 😭</p>
+                <button class="restart">¿Restart?</button>
+            </div>
+        </div>
+        <div id="timeOver" class="game-over">
+            <div class="mode">
+                <h2>¡Sorry!</h2>
+                <p>You have run out of time 😭</p>
                 <button class="restart">¿Restart?</button>
             </div>
         </div>
@@ -57,24 +69,28 @@
                 <button class="restart">¿Restart?</button>
             </div>
         </div>
-        
     </main>
+    <div class="level-selection">
+        <button id="close-level" class="close-level">&times;</button>
+        <ul></ul>
+    </div>
 
     <audio src="sound/success.mp3" class="sound" id="sound-success" preload="auto"></audio>
     <audio src="sound/error.mp3" class="sound" id="sound-error" preload="auto"></audio>
     <audio src="sound/flip.mp3" class="sound" id="sound-flip" preload="auto"></audio>
 
-
     <script src="js/global.js"></script>
-    <script src="js/distrubute-card.js"></script>
     <script src="js/discover-compare.js"></script>
+    <script src="js/distrubute-card.js"></script>
     <script src="js/success-error.js"></script>
     <script src="js/movement.js"></script>
     <script src="js/timer.js"></script>
     <script src="js/finish.js"></script>
     <script src="js/change-level.js"></script>
     <script src="js/game-over.js"></script>
+    <script src="js/menu-levels.js"></script>
     <script src="js/initial.js"></script>
+    <script src="js/start-game.js"></script>
     </body>
 
 </html>

@@ -3,7 +3,7 @@ function startCounter() {
     movement++;
     movementText = movement;
 
-    if (movement > levels[levelActual].movementMax){
+    if (movement > levels[levelActual].movementMax && !modeRelax) {
         gameOver();
         return;
     }
